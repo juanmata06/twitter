@@ -9,7 +9,7 @@ https://docs.djangoproject.com/en/4.2/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/4.2/ref/settings/
 """
-
+import datetime
 from pathlib import Path
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -116,6 +116,19 @@ USE_I18N = True
 
 USE_TZ = True
 
+#* JWT implementation:
+REST_FRAMEWORK = {
+    'DEFAULT_AUTHENTICATION_CLASSES': (
+        'rest_framework_simplejwt.authentication.JWTAuthentication',
+    )
+}
+
+#* Expiration of JWT tokens:
+SIMPLE_JWT = {
+  'ACCESS_TOKEN_LIFETIME': datetime.timedelta(minutes=60),
+  'REFRESH_TOKEN_LIFETIME': datetime.timedelta(days=7)
+}
+
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.2/howto/static-files/
@@ -128,5 +141,5 @@ STATIC_ROOT = './static/' # Directory for Swagger Static files (CSS, JavaScript,
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-#* Sets User model as user of the proyect (Override of django user)
+#* Sets User model as user of the proyect (Override of django user):
 AUTH_USER_MODEL = 'user.User'
