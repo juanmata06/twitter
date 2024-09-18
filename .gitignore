@@ -1,2 +1,6 @@
 envs/twitter
 twitter/static
+
+__pycache__/
+*/migrations/*.pyc
+*/migrations/__pycache__/
