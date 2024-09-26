@@ -43,7 +43,8 @@ INSTALLED_APPS = [
     'drf_yasg',
     # My apps:
     'user',
-    'category'
+    'category',
+    'post'
 ]
 
 MIDDLEWARE = [
