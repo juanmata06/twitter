@@ -22,7 +22,6 @@ Ensure you have the following installed before starting:
    ```bash
    pip install -r requirements.txt
 
-
 3. Apply the database migrations:
 
    ```bash
