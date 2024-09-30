@@ -68,7 +68,7 @@
 					"response": []
 				},
 				{
-					"name": "Get user by Id",
+					"name": "Get user by id",
 					"request": {
 						"method": "GET",
 						"header": [
@@ -289,7 +289,7 @@
 					"response": []
 				},
 				{
-					"name": "Get category by Id",
+					"name": "Get category by id",
 					"request": {
 						"method": "GET",
 						"header": [],
@@ -406,6 +406,125 @@
 								"api",
 								"categories",
 								"2",
+								""
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Posts",
+			"item": [
+				{
+					"name": "List posts",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8000/api/posts/",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"posts",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "List posts using filters",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8000/api/posts/?is_visible=True&category__slug=economy",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"posts",
+								""
+							],
+							"query": [
+								{
+									"key": "is_visible",
+									"value": "True"
+								},
+								{
+									"key": "category__slug",
+									"value": "economy"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get post by id",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8000/api/posts/5",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"posts",
+								"5"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create post",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{Twitter token}}",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"title\": \"¿What about crypto?\",\n  \"slug\": \"what-about-crypto\",\n  \"content\": \"It's somenthing from other world!\",\n  \"is_visible\": true,\n  \"user\": 1,\n  \"category\": 4\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8000/api/posts/",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"posts",
 								""
 							]
 						}

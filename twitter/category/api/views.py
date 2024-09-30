@@ -1,4 +1,5 @@
 from rest_framework.viewsets import ModelViewSet
+from rest_framework.filters import OrderingFilter
 from django_filters.rest_framework import DjangoFilterBackend
 from category.models import Category
 from category.api.serializers import CategorySerializer
@@ -11,5 +12,6 @@ class CategoryApiViewSet(ModelViewSet):
     queryset = Category.objects.all()
     # queryset = Category.objects.filter(is_visible=True)
     lookup_field = 'slug'
-    filter_backends = [DjangoFilterBackend]
+    filter_backends = [DjangoFilterBackend, OrderingFilter]
+    ordering = ['-slug']
     filterset_fields = ['is_visible', 'title']

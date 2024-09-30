@@ -23,6 +23,7 @@ from drf_yasg import openapi
 from rest_framework import permissions
 # API views imports:
 from category.api.router import router as category_router
+from post.api.router import router as post_router
 
 schema_view = get_schema_view(
    openapi.Info(
@@ -42,5 +43,6 @@ urlpatterns = [
     path('docs/', schema_view.with_ui('swagger', cache_timeout=0), name='schema-swagger-ui'),
     path('redoc/', schema_view.with_ui('redoc', cache_timeout=0), name='schema-redoc'),
     path('api/', include('user.api.router')),
-    path('api/', include(category_router.urls))
+    path('api/', include(category_router.urls)),
+    path('api/', include(post_router.urls))
 ]
